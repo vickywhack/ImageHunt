@@ -1,8 +1,12 @@
-﻿using System;
+﻿using ImageHunt.Interfaces;
+using ImageHunt.Register;
+using ImageHunt.UWP.Services;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Unity.Lifetime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -20,6 +24,8 @@ namespace ImageHunt.UWP
         public MainPage()
         {
             this.InitializeComponent();
+
+            Bootstrapper.RegisterPlatformDependency<IToastService, ToastService>(new SingletonLifetimeManager());
 
             LoadApplication(new ImageHunt.App());
         }

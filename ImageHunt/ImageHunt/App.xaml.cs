@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ImageHunt.Register;
+using ImageHunt.Views;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,8 +12,8 @@ namespace ImageHunt
         public App()
         {
             InitializeComponent();
-
-            MainPage = new MainPage();
+            Bootstrapper.RegisterDependencies();
+            MainPage = new NavigationPage(new MainPage());
         }
 
         protected override void OnStart()

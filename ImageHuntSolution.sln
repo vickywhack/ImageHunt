@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageHunt.iOS", "ImageHunt\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageHunt.UWP", "ImageHunt\ImageHunt.UWP\ImageHunt.UWP.csproj", "{F31A98B0-33B1-4DDD-BF80-3BB36D6AE8C9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageHunt", "ImageHunt\ImageHunt\ImageHunt.csproj", "{7965E6D9-B1DE-484C-BDF4-A282924EEFDF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ImageHunt", "ImageHunt\ImageHunt\ImageHunt.csproj", "{7965E6D9-B1DE-484C-BDF4-A282924EEFDF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -234,9 +234,9 @@ Global
 		{F31A98B0-33B1-4DDD-BF80-3BB36D6AE8C9}.Debug|x64.ActiveCfg = Debug|x64
 		{F31A98B0-33B1-4DDD-BF80-3BB36D6AE8C9}.Debug|x64.Build.0 = Debug|x64
 		{F31A98B0-33B1-4DDD-BF80-3BB36D6AE8C9}.Debug|x64.Deploy.0 = Debug|x64
-		{F31A98B0-33B1-4DDD-BF80-3BB36D6AE8C9}.Debug|x86.ActiveCfg = Debug|x86
-		{F31A98B0-33B1-4DDD-BF80-3BB36D6AE8C9}.Debug|x86.Build.0 = Debug|x86
-		{F31A98B0-33B1-4DDD-BF80-3BB36D6AE8C9}.Debug|x86.Deploy.0 = Debug|x86
+		{F31A98B0-33B1-4DDD-BF80-3BB36D6AE8C9}.Debug|x86.ActiveCfg = Debug|x64
+		{F31A98B0-33B1-4DDD-BF80-3BB36D6AE8C9}.Debug|x86.Build.0 = Debug|x64
+		{F31A98B0-33B1-4DDD-BF80-3BB36D6AE8C9}.Debug|x86.Deploy.0 = Debug|x64
 		{F31A98B0-33B1-4DDD-BF80-3BB36D6AE8C9}.Release|Any CPU.ActiveCfg = Release|x86
 		{F31A98B0-33B1-4DDD-BF80-3BB36D6AE8C9}.Release|Any CPU.Build.0 = Release|x86
 		{F31A98B0-33B1-4DDD-BF80-3BB36D6AE8C9}.Release|Any CPU.Deploy.0 = Release|x86

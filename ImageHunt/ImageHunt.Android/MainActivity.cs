@@ -6,6 +6,10 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using Unity.Lifetime;
+using ImageHunt.Interfaces;
+using ImageHunt.Droid.Services;
+using ImageHunt.Register;
 
 namespace ImageHunt.Droid
 {
@@ -19,6 +23,9 @@ namespace ImageHunt.Droid
 
             base.OnCreate(savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
+
+            Bootstrapper.RegisterPlatformDependency<IToastService, ToastService>(new SingletonLifetimeManager());
+
             LoadApplication(new App());
         }
     }
