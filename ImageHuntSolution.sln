@@ -13,11 +13,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ImageHunt", "ImageHunt\Imag
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ImageHunt.Test", "ImageHunt.Test\ImageHunt.Test.csproj", "{4C8A3AAD-04B9-46FB-949E-332DFDF60FE7}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{00C2888D-67F1-4B41-9A36-702B19252563}"
-	ProjectSection(SolutionItems) = preProject
-		..\..\..\Desktop\.travis.yml = ..\..\..\Desktop\.travis.yml
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Ad-Hoc|Any CPU = Ad-Hoc|Any CPU
