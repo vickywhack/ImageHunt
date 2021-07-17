@@ -2,16 +2,20 @@ language: csharp
 solution: ImageHuntSolution.sln
 mono: none
 dotnet: 2.2
+before_install:
+- sudo apt-get -y install libpam0g-dev
 install:
-  - nuget restore ImageHuntSolution.sln
-  - nuget install NUnit.Console -Version 3.11.0 -OutputDirectory testrunner
+- dotnet restore
 script:
-  - dotnet restore
-  - msbuild /p:Configuration=Release ImageHuntSolution.sln
-  - mono ./testrunner/NUnit.ConsoleRunner.3.11.0/tools/nunit3-console.exe ./ImageHunt.Tests/bin/Release/ImageHunt.Tests.dll
+- dotnet build -c Release
+after_success:
+- ./test/setup_test_account.sh
+- sudo dotnet test test/ImageHunt.Test/ImageHunt.Test.csproj
+before_deploy:
+- dotnet pack -c Release
 deploy:
   skip_cleanup: true
   provider: script
-  script: chmod +x ./deploy/deploy.sh && ./deploy/deploy.sh $NUGET_API_KEY $NUGET_SOURCE
+  script: dotnet nuget push ./src/Npam/bin/Release/Npam.*.nupkg -k $NUGET_API -s https://api.nuget.org/v3/index.json --skip-duplicate
   on:
-    branch: main
+    branch: master
