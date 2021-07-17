@@ -1,8 +1,6 @@
 os : windows
 language: csharp
 solution: ImageHuntSolution.sln
-mono: none
-dotnet: 3.1
 install:
   - nuget restore ImageHuntSolution.sln
   - nuget install NUnit.Console -Version 3.11.0 -OutputDirectory testrunner
@@ -10,3 +8,9 @@ script:
   - dotnet restore
   - msbuild /p:Configuration=Release ImageHuntSolution.sln
   - mono ./testrunner/NUnit.ConsoleRunner.3.11.0/tools/nunit3-console.exe ./ImageHunt.Tests/bin/Release/ImageHunt.Tests.dll
+deploy:
+  skip_cleanup: true
+  provider: script
+  script: chmod +x ./deploy/deploy.sh && ./deploy/deploy.sh $NUGET_API_KEY $NUGET_SOURCE
+  on:
+    branch: main
