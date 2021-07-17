@@ -1,5 +1,4 @@
 ﻿using System;
-
 using Android.App;
 using Android.Content.PM;
 using Android.Runtime;
@@ -25,6 +24,7 @@ namespace ImageHunt.Droid
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
 
             Bootstrapper.RegisterPlatformDependency<IToastService, ToastService>(new SingletonLifetimeManager());
+            FFImageLoading.Forms.Platform.CachedImageRenderer.Init(true);
 
             LoadApplication(new App());
         }

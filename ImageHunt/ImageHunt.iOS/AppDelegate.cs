@@ -29,6 +29,7 @@ namespace ImageHunt.iOS
             global::Xamarin.Forms.Forms.Init();
 
             Bootstrapper.RegisterPlatformDependency<IToastService, ToastService>(new SingletonLifetimeManager());
+            FFImageLoading.Forms.Platform.CachedImageRenderer.Init();
 
             LoadApplication(new App());
 

@@ -1,9 +1,5 @@
 ﻿using ImageHunt.Interfaces;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Windows.UI.Notifications;
 
 namespace ImageHunt.UWP.Services
@@ -20,7 +16,6 @@ namespace ImageHunt.UWP.Services
             ToastNotifier ToastNotifier = ToastNotificationManager.CreateToastNotifier();
             Windows.Data.Xml.Dom.XmlDocument toastXml = ToastNotificationManager.GetTemplateContent(ToastTemplateType.ToastText02);
             Windows.Data.Xml.Dom.XmlNodeList toastNodeList = toastXml.GetElementsByTagName("text");
-            toastNodeList.Item(0).AppendChild(toastXml.CreateTextNode("Toast"));
             toastNodeList.Item(1).AppendChild(toastXml.CreateTextNode(message));
 
             ToastNotification toast = new ToastNotification(toastXml)

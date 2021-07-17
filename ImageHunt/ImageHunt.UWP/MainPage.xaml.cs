@@ -26,6 +26,7 @@ namespace ImageHunt.UWP
             this.InitializeComponent();
 
             Bootstrapper.RegisterPlatformDependency<IToastService, ToastService>(new SingletonLifetimeManager());
+            FFImageLoading.Forms.Platform.CachedImageRenderer.Init();
 
             LoadApplication(new ImageHunt.App());
         }
