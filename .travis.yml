@@ -3,8 +3,9 @@ solution: ImageHuntSolution.sln
 mono: none
 dotnet: 2.1.502
 install:
-  - nuget install NUnit.Console -Version 3.11.0 -OutputDirectory testrunner
-script:
+  - choco install visualstudio2019buildtools --package-parameters "--add Microsoft.VisualStudio.Component.VC.Tools.x86.x64"
+  - choco install dotnetcore-sdk
   - dotnet restore
+script:
   - msbuild /p:Configuration=Release ImageHuntSolution.sln
   - mono ./testrunner/NUnit.ConsoleRunner.3.11.0/tools/nunit3-console.exe ./ImageHunt.Tests/bin/Release/ImageHunt.Tests.dll
