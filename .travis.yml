@@ -2,7 +2,7 @@ os : windows
 language: csharp
 solution: ImageHuntSolution.sln
 mono: 
-  - latest
+  - 3.12.0
 install:
   - nuget restore ImageHuntSolution.sln
   - nuget install NUnit.Console -Version 3.11.0 -OutputDirectory testrunner
