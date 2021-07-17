@@ -12,10 +12,6 @@ namespace ImageHunt.Register
 
         public static void RegisterDependencies()
         {
-            // register platform independent services
-            //_container.RegisterType<IService, Service>(new ContainerControlledLifetimeManager());
-
-            // register viewmodels
             _container.RegisterType<MainPageViewModel>(new ContainerControlledLifetimeManager());
 
             var locator = new UnityServiceLocator(_container);

@@ -17,7 +17,7 @@ namespace ImageHunt.ViewModels
         #endregion
 
         #region Constants
-        private const string Flickerkey = "4c29a23216ee0f7a2854621cfa57af4a";
+        private const string Flickrkey = "4c29a23216ee0f7a2854621cfa57af4a";
         private const string SearchUrl = "http://api.flickr.com/services/rest/?method=flickr.photos.search&api_key={0}&text={1}";
         #endregion
 
@@ -30,7 +30,7 @@ namespace ImageHunt.ViewModels
 
         #region Fields
         private string _imageToSearch = string.Empty;
-        private IList<FlikarImage> _images;
+        private IList<FlickrImage> _images;
         private ICommand _searchCommand;
         #endregion
 
@@ -41,44 +41,58 @@ namespace ImageHunt.ViewModels
             set { _imageToSearch = value; OnPropertyChanged(); }
         }
 
-        public IList<FlikarImage> Images
+        public IList<FlickrImage> Images
         {
             get => _images;
             set { _images = value; OnPropertyChanged(); }
         }
 
         public ICommand SearchCommand => _searchCommand ??
-            (_searchCommand = new Command(async () => await SearchResultsAsync().ConfigureAwait(false)));
+            (_searchCommand = new Command(HuntImages));
         #endregion
 
-        #region Private Methods
-        private async Task SearchResultsAsync()
+        #region Methods
+        private async void HuntImages()
         {
-            var client = new HttpClient();
-            var response = await client.GetAsync(string.Format(SearchUrl, Flickerkey, ImageToSearch)).ConfigureAwait(false);
-            if (response.IsSuccessStatusCode)
+            var result = await SearchResultsAsync().ConfigureAwait(false);
+            if (result != null)
             {
-                Images = await GetImagesAsync(response).ConfigureAwait(false);
-                GetToastMessage();
+                Images = GetImages(result);
             }
+            GetToastMessage();
         }
 
-        private async Task<IList<FlikarImage>> GetImagesAsync(HttpResponseMessage responseMsg)
+        public async Task<string> SearchResultsAsync()
         {
-            var Doc = XDocument.Parse(await responseMsg.Content.ReadAsStringAsync().ConfigureAwait(false));
-            var myphotos = (from results in Doc.Descendants("photo")
-                            select new FlikarImage
+            var client = new HttpClient();
+            var response = await client.GetAsync(string.Format(SearchUrl, Flickrkey, ImageToSearch)).ConfigureAwait(false);
+            if (response.IsSuccessStatusCode)
+            {
+                return await response.Content.ReadAsStringAsync().ConfigureAwait(false);
+            }
+            return null;
+        }
+
+        public IList<FlickrImage> GetImages(string serialized)
+        {
+            if (string.IsNullOrEmpty(serialized))
+            {
+                return null;
+            }
+            var doc = XDocument.Parse(serialized);
+            var allPhotos = from results in doc.Descendants("photo")
+                            select new FlickrImage
                             {
                                 PhotosId = results.Attribute("id").Value,
                                 ImageTitle = results.Attribute("title").Value,
                                 Secret = results.Attribute("secret").Value,
                                 FarmeId = results.Attribute("farm").Value,
                                 ServerId = results.Attribute("server").Value
-                            });
-            return Images = myphotos.ToList();
+                            };
+            return Images = allPhotos.ToList();
         }
 
-        private void GetToastMessage()
+        public void GetToastMessage()
         {
             string toastMessage = string.Empty;
             if (string.IsNullOrEmpty(ImageToSearch))
@@ -89,7 +103,6 @@ namespace ImageHunt.ViewModels
             {
                 toastMessage = $"Here we have {ImageToSearch} from Flicker Library 😉";
             }
-
             _toastService.ShowToast(toastMessage);
         }
         #endregion

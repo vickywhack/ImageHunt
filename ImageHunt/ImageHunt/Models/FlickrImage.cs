@@ -2,7 +2,7 @@
 
 namespace ImageHunt.Models
 {
-    public class FlikarImage
+    public class FlickrImage
     {
         public string PhotosId { get; set; }
         public string ImageTitle { get; set; }
