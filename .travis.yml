@@ -1,13 +1,12 @@
-OS : windows
 language: csharp
 solution: ./ImageHuntSolution.sln
-mono: 
+mono:
 - latest
 install:
 - dotnet restore ./ImageHuntSolution.sln
 script:
-- dotnet build ./ImageHuntSolution.sln
-- dotnet test ImageHunt.Test/ImageHunt.Test.csproj
+- dotnet build ./ImageHunt/ImageHunt.UWP/ImageHunt.UWP.csproj
+- dotnet test ./ImageHunt.Test/ImageHunt.Test.csproj
 before_deploy:
 - dotnet pack -c Release
 skip_cleanup: true
