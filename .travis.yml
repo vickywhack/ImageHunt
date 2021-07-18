@@ -7,8 +7,6 @@ install:
 script:
 - dotnet build ./ImageHunt/ImageHunt/ImageHunt.csproj
 - dotnet test ./ImageHunt.Test/ImageHunt.Test.csproj
-before_deploy:
-- dotnet build -c Release
 skip_cleanup: true
 deploy:
   provider: script
