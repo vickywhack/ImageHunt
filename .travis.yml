@@ -1,11 +1,11 @@
 language: csharp
 solution: ./ImageHuntSolution.sln
-mono:
-- latest
+mono: none
+dotnet: 2.2
 install:
-- dotnet restore ./ImageHuntSolution.sln
+- dotnet restore ./ImageHunt/ImageHunt.UWP/ImageHunt.UWP.csproj
 script:
-- dotnet build ./ImageHunt/ImageHunt.UWP/ImageHunt.UWP.csproj
+- dotnet build ./ImageHuntSolution.sln
 - dotnet test ./ImageHunt.Test/ImageHunt.Test.csproj
 before_deploy:
 - dotnet pack -c Release
