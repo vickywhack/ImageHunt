@@ -7,7 +7,7 @@ dotnet: 2.2
 
 install:
 - dotnet restore ./ImageHunt/ImageHunt/ImageHunt.csproj
-- dotnet restore ./ImageHuntSolution.sln
+- dotnet restore ./ImageHunt/ImageHunt.UWP/ImageHunt.UWP.csproj
 
 script:
 - dotnet build ./ImageHunt/ImageHunt/ImageHunt.csproj
