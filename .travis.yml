@@ -10,7 +10,6 @@ install:
 - dotnet restore ./ImageHuntSolution.sln
 
 script:
-- dotnet clean ./ImageHunt/ImageHunt/ImageHunt.csproj
 - dotnet build ./ImageHunt/ImageHunt/ImageHunt.csproj
 - dotnet test ./ImageHunt.Test/ImageHunt.Test.csproj
 
