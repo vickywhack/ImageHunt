@@ -1,11 +1,5 @@
+os : windows
 language: csharp
-
-os:
-  - osx
-
-dist: trusty
-sudo: required
+mono: none
 dotnet: 2.1.701
-
-script: |
-  ./build.sh -t Travis
+solution: ./ImageHuntSolution.sln
