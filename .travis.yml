@@ -1,8 +1,8 @@
 OS : windows
 language: csharp
 solution: ./ImageHuntSolution.sln
-mono: none
-dotnet: 2.2
+mono: 
+- latest
 install:
 - dotnet restore ./ImageHuntSolution.sln
 script:
