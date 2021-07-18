@@ -6,12 +6,12 @@ mono: none
 dotnet: 2.2
 
 install:
+- dotnet restore ./ImageHunt/ImageHunt/ImageHunt.csproj
 - dotnet restore ./ImageHuntSolution.sln
 
 script:
 - dotnet clean ./ImageHunt/ImageHunt/ImageHunt.csproj
 - dotnet build ./ImageHunt/ImageHunt/ImageHunt.csproj
-- dotnet build ./ImageHuntSolution.sln
 - dotnet test ./ImageHunt.Test/ImageHunt.Test.csproj
 
 skip_cleanup: true
