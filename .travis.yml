@@ -11,11 +11,7 @@ install:
 
 script:
 - dotnet clean ./ImageHunt/ImageHunt/ImageHunt.csproj
-- dotnet clean ./ImageHunt/ImageHunt.UWP/ImageHunt.UWP.csproj
-
 - dotnet build ./ImageHunt/ImageHunt/ImageHunt.csproj
-- dotnet build ./ImageHunt/ImageHunt.UWP/ImageHunt.UWP.csproj
-
 - dotnet test ./ImageHunt.Test/ImageHunt.Test.csproj
 
 skip_cleanup: true
