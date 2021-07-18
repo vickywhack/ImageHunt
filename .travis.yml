@@ -1,5 +1,17 @@
-os : windows
 language: csharp
-mono: none
-dotnet: 2.1.701
 solution: ./ImageHuntSolution.sln
+mono: none
+dotnet: 2.2
+install:
+- dotnet restore ./ImageHunt/ImageHunt/ImageHunt.csproj
+script:
+- dotnet build ./ImageHunt/ImageHunt/ImageHunt.csproj
+- dotnet test ./ImageHunt.Test/ImageHunt.Test.csproj
+before_deploy:
+- dotnet build -c Release
+skip_cleanup: true
+deploy:
+  provider: script
+  script: dotnet nuget push ./ImageHuntSolution/bin/Release/ImageHuntSolution.*.nupkg -k $NUGET_API -s https://api.nuget.org/v3/index.json --skip-duplicate
+  on:
+    branch: main
