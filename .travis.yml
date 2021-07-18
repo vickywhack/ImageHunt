@@ -10,9 +10,10 @@ install:
 - dotnet restore ./ImageHunt/ImageHunt.UWP/ImageHunt.UWP.csproj
 
 script:
-- dotnet build ./ImageHunt/ImageHunt/ImageHunt.csproj
-- dotnet build ./ImageHuntSolution.sln
+- dotnet rebuild ./ImageHunt/ImageHunt/ImageHunt.csproj
+- dotnet rebuild ./ImageHunt/ImageHunt.UWP/ImageHunt.UWP.csproj
 - dotnet test ./ImageHunt.Test/ImageHunt.Test.csproj
+
 skip_cleanup: true
 
 deploy:
