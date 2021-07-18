@@ -8,8 +8,3 @@ script:
 - dotnet build ./ImageHunt/ImageHunt/ImageHunt.csproj
 - dotnet test ./ImageHunt.Test/ImageHunt.Test.csproj
 skip_cleanup: true
-deploy:
-  provider: script
-  script: dotnet nuget push ./ImageHuntSolution/bin/Release/ImageHuntSolution.*.nupkg -k $NUGET_API -s https://api.nuget.org/v3/index.json --skip-duplicate
-  on:
-    branch: main
