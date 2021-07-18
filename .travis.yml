@@ -9,6 +9,7 @@ install:
 - dotnet restore ./ImageHunt/ImageHunt/ImageHunt.csproj
 - dotnet restore ./ImageHunt/ImageHunt.Android/ImageHunt.Android.csproj
 - dotnet restore ./ImageHunt/ImageHunt.UWP/ImageHunt.UWP.csproj
+- dotnet restore ./ImageHuntSolution.sln
 
 script:
 - dotnet clean ./ImageHunt/ImageHunt/ImageHunt.csproj
