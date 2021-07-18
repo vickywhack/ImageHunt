@@ -7,10 +7,10 @@ before_install:
 install:
 - dotnet restore
 script:
-- dotnet build -c Release
+- dotnet build
 after_success:
 - ./test/setup_test_account.sh
-- sudo dotnet test test/ImageHunt.Test/ImageHunt.Test.csproj
+- sudo dotnet test ImageHunt.Test/ImageHunt.Test.csproj
 before_deploy:
 - dotnet pack -c Release
 deploy:
