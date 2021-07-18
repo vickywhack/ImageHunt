@@ -2,15 +2,12 @@ language: csharp
 solution: ImageHuntSolution.sln
 mono: none
 dotnet: 2.2
-before_install:
-- sudo apt-get -y install libpam0g-dev
+
 install:
-- dotnet restore
+- dotnet restore ImageHuntSolution.sln
 script:
-- dotnet build
-after_success:
-- ./test/setup_test_account.sh
-- sudo dotnet test ImageHunt.Test/ImageHunt.Test.csproj
+- dotnet build ImageHuntSolution.sln
+- dotnet test ImageHunt.Tests/ImageHunt.Tests.csproj
 before_deploy:
 - dotnet pack -c Release
 deploy:
