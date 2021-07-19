@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Xml.Linq;
 using Xamarin.Forms;
+using ImageHunt.Constants;
 
 namespace ImageHunt.ViewModels
 {
@@ -14,11 +15,6 @@ namespace ImageHunt.ViewModels
     {
         #region Services
         private readonly IToastService _toastService;
-        #endregion
-
-        #region Constants
-        private const string Flickrkey = "4c29a23216ee0f7a2854621cfa57af4a";
-        private const string SearchUrl = "http://api.flickr.com/services/rest/?method=flickr.photos.search&api_key={0}&text={1}";
         #endregion
 
         #region Constructors
@@ -65,7 +61,7 @@ namespace ImageHunt.ViewModels
         public async Task<string> SearchResultsAsync()
         {
             var client = new HttpClient();
-            var response = await client.GetAsync(string.Format(SearchUrl, Flickrkey, ImageToSearch)).ConfigureAwait(false);
+            var response = await client.GetAsync(string.Format(AppConstants.SearchUrl, AppConstants.Flickrkey, ImageToSearch)).ConfigureAwait(false);
             if (response.IsSuccessStatusCode)
             {
                 return await response.Content.ReadAsStringAsync().ConfigureAwait(false);
