@@ -2,6 +2,21 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>Vikash Sahu</Authors>
+    <Company>whacknology</Company>
+    <Description>A program with a graphical user interface that takes in a search string and displays photographs that match the search string. 
+It uses Flickr’s public photo feed at https://www.flickr.com/services/feeds/docs/photos_public/ as your service.
+Xamarin Solution Targeting Android &amp; UWP</Description>
+    <RepositoryUrl>https://github.com/vickywhack/ImageHunt</RepositoryUrl>
+    <RepositoryType>GitHub</RepositoryType>
+    <PackageProjectUrl>https://github.com/vickywhack/ImageHunt</PackageProjectUrl>
+    <PackageReleaseNotes>A program with a graphical user interface that takes in a search string and displays photographs that match the search string. 
+It uses Flickr’s public photo feed at https://www.flickr.com/services/feeds/docs/photos_public/ as your service.
+Xamarin Solution Targeting Android &amp; UWP</PackageReleaseNotes>
+    <PackageTags>Image, Xamarin, Android, UWP, Flickr, Photo, Search, API</PackageTags>
+    <PackageLicenseUrl></PackageLicenseUrl>
+    <Copyright>Copyright ©  2021 Vikash Sahu</Copyright>
+    <NeutralLanguage>aa-DJ</NeutralLanguage>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

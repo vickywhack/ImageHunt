@@ -4,6 +4,28 @@
     <TargetFramework>netcoreapp2.2</TargetFramework>
 
     <IsPackable>false</IsPackable>
+
+    <Authors>Vikash Sahu</Authors>
+
+    <Company>whacknology</Company>
+
+    <Description>UT for InageHunt Project</Description>
+
+    <Copyright>Copyright ©  2021 Vikash Sahu</Copyright>
+
+    <PackageLicenseUrl />
+
+    <PackageProjectUrl>https://github.com/vickywhack/ImageHunt</PackageProjectUrl>
+
+    <RepositoryUrl>https://github.com/vickywhack/ImageHunt</RepositoryUrl>
+
+    <RepositoryType>GitHub</RepositoryType>
+
+    <PackageTags>Image, Xamarin, Android, UWP, Flickr, Photo, Search, API</PackageTags>
+
+    <PackageReleaseNotes>A program with a graphical user interface that takes in a search string and displays photographs that match the search string. 
+It uses Flickr’s public photo feed at https://www.flickr.com/services/feeds/docs/photos_public/ as your service.
+Xamarin Solution Targeting Android &amp; UWP</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>

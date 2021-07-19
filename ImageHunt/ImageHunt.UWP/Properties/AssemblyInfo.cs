@@ -6,12 +6,12 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("ImageHunt.UWP")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("A program with a graphical user interface that takes in a search string and displays photographs that match the search string.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("whacknology")]
 [assembly: AssemblyProduct("ImageHunt.UWP")]
-[assembly: AssemblyCopyright("Copyright ©  2015")]
-[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCopyright("Copyright ©  2021 Vikash Sahu")]
+[assembly: AssemblyTrademark("Vikash Sahu")]
 [assembly: AssemblyCulture("")]
 
 // Version information for an assembly consists of the following four values:
